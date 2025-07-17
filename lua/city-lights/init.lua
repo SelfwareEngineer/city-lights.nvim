@@ -85,6 +85,13 @@ function M.setup()
 	set(0, "DiagnosticSignHint", { fg = colors.blue })
 	set(0, "DiagnosticSignOk", { fg = colors.green })
 
+	-- Diagnostics Undercurls
+	set(0, "DiagnosticUnderlineError", { sp = colors.red, undercurl = true })
+	set(0, "DiagnosticUnderlineWarn", { sp = colors.gold, undercurl = true })
+	set(0, "DiagnosticUnderlineInfo", { sp = colors.cyan, undercurl = true })
+	set(0, "DiagnosticUnderlineHint", { sp = colors.blue, undercurl = true })
+	set(0, "DiagnosticUnderlineOk", { sp = colors.green, undercurl = true })
+
 	-- Diffing
 	set(0, "Added", { fg = colors.green, bg = colors.bg_green })
 	set(0, "Changed", { fg = colors.blue, bg = colors.bg_blue })
