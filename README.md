@@ -35,5 +35,12 @@ set -as terminal-overrides ',*:Setulc=\E[58::2::::%p1%{65536}%/%d::%p1%{256}%/%{
 
 # TODO
 
+## Major
+
 - Fix Issues outlined above
 - Create second version with colors slightly dimmed; we can't all be retina-scorch enjoyers
+- Figure out how to tweak theme on a per-language basis
+
+## Minor
+
+- Change default punctuation color so strings stick out a little more
