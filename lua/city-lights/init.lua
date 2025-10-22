@@ -15,6 +15,7 @@ local colors = {
 	grey = "#9eabac",
 	black = "#000000",
 
+	background = "#00040d",
 	accent = "#000f0f",
 
 	dark_red = "#7a0000",
@@ -42,14 +43,14 @@ function M.setup()
 	--:INFO: Builtin Vim UI elements
 
 	-- Basic UI elements
-	set(0, "Normal", { fg = colors.grey, bg = colors.black })
+	set(0, "Normal", { fg = colors.grey, bg = colors.background })
 	set(0, "Visual", { bg = colors.dark_cyan })
 	set(0, "CursorLine", { bg = colors.accent })
 	set(0, "LineNr", { fg = colors.dark_cyan })
 	set(0, "CursorLineNr", { fg = colors.cyan, bold = true })
 	set(0, "Directory", { fg = colors.gold, bold = true })
 	set(0, "Search", { fg = colors.white, bg = colors.dark_cyan })
-	set(0, "CurSearch", { fg = colors.black, bg = colors.cyan })
+	set(0, "CurSearch", { fg = colors.background, bg = colors.cyan })
 
 	-- Basic builtin Vim syntax groups
 	set(0, "Comment", { fg = colors.dark_cyan, italic = true })
