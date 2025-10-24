@@ -16,7 +16,7 @@ local colors = {
 	black = "#000000",
 
 	background = "#00040d",
-	accent = "#000f0f",
+	accent = "#000e12",
 
 	dark_red = "#7a0000",
 	dark_gold = "#885b00",
