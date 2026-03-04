@@ -1,27 +1,37 @@
 local M = {}
 
+-- WARN: Vim appears not to like abbreviated hex codes (e.g. #fa0); always use full-length definitions
 local colors = {
 	red = "#ff0000",
 	-- It's extremely important for any reference to a constructor or factory function to be a reference to Satisfactory
 	ficsit_orange = "#d17c2d",
 	gold = "#ffa700",
 	yellow = "#ffff00",
-	lime = "#9aff00",
+	lime = "#bbff00",
 	green = "#00ff00",
 	cyan = "#00ffff",
-	blue = "#0094ff",
-	purple = "#ac1eff",
+	sky = "#00b6ff",
+	blue = "#0055ff",
+	purple = "#aa33ff",
+	lavendar = "#bb88ff",
+	pink = "#ff00ff",
 	white = "#ffffff",
-	grey = "#9eabac",
+	grey = "#aabbbb",
 	black = "#000000",
 
-	background = "#00040d",
+	background = "#00030a",
 	accent = "#000e12",
 
 	dark_red = "#7a0000",
 	dark_gold = "#885b00",
 	dark_blue = "#004f8d",
 	dark_cyan = "#005454",
+
+	hl_red = "#440000",
+	hl_gold = "#443300",
+	hl_green = "#004400",
+	hl_blue = "#003344",
+	hl_cyan = "#004040",
 
 	bg_red = "#2d0000",
 	bg_gold = "#251800",
@@ -37,20 +47,20 @@ function M.setup()
 
 	vim.o.background = "dark"
 	vim.g.colors_name = "city-lights"
-
 	local set = vim.api.nvim_set_hl
 
-	--:INFO: Builtin Vim UI elements
+	-- INFO: Builtin Vim UI elements
 
 	-- Basic UI elements
 	set(0, "Normal", { fg = colors.grey, bg = colors.background })
-	set(0, "Visual", { bg = colors.dark_cyan })
+	set(0, "Visual", { bg = colors.hl_cyan })
 	set(0, "CursorLine", { bg = colors.accent })
 	set(0, "LineNr", { fg = colors.dark_cyan })
 	set(0, "CursorLineNr", { fg = colors.cyan, bold = true })
 	set(0, "Directory", { fg = colors.gold, bold = true })
 	set(0, "Search", { fg = colors.white, bg = colors.dark_cyan })
 	set(0, "CurSearch", { fg = colors.background, bg = colors.cyan })
+	set(0, "Question", { fg = colors.yellow })
 
 	-- Basic builtin Vim syntax groups
 	set(0, "Comment", { fg = colors.dark_cyan, italic = true })
@@ -58,10 +68,11 @@ function M.setup()
 	set(0, "Constant", { fg = colors.grey })
 	set(0, "Title", { fg = colors.lime, bold = true })
 	set(0, "Number", { fg = colors.purple })
+	set(0, "Float", { fg = colors.lavendar })
 	set(0, "Boolean", { fg = colors.gold })
-	set(0, "Identifier", { fg = colors.lime })
+	set(0, "Identifier", { fg = colors.green })
 	set(0, "Keyword", { fg = colors.cyan, italic = true })
-	set(0, "Function", { fg = colors.blue, bold = true, italic = true })
+	set(0, "Function", { fg = colors.sky, bold = true, italic = true })
 	set(0, "Statement", { fg = colors.cyan })
 	set(0, "PreProc", { fg = colors.gold })
 
@@ -70,13 +81,13 @@ function M.setup()
 	set(0, "ErrorMsg", { link = "Exception" })
 	set(0, "WarningMsg", { fg = colors.gold, bg = colors.bg_gold })
 	set(0, "ModeMsg", { fg = colors.green, bg = colors.bg_green })
-	set(0, "MoreMsg", { fg = colors.cyan, bg = colors.bg_cyan })
+	set(0, "MoreMsg", { fg = colors.sky, bg = colors.bg_blue })
 
 	-- Diagnostics
 	set(0, "DiagnosticError", { link = "Exception" })
 	set(0, "DiagnosticWarn", { link = "WarningMsg" })
 	set(0, "DiagnosticInfo", { link = "MoreMsg" })
-	set(0, "DiagnosticHint", { fg = colors.blue, bg = colors.bg_blue })
+	set(0, "DiagnosticHint", { fg = colors.cyan, bg = colors.bg_cyan })
 	set(0, "DiagnosticOk", { link = "ModeMsg" })
 
 	-- Diagnostics Signs
@@ -98,20 +109,25 @@ function M.setup()
 	set(0, "Changed", { fg = colors.blue, bg = colors.bg_blue })
 	set(0, "Removed", { link = "Exception" })
 
-	--:INFO: Treesitter
+	-- INFO: Treesitter
 
 	-- Basic Treesitter syntax groups
 	set(0, "@variable", { fg = colors.green })
-	set(0, "@variable.parameter", { fg = colors.purple })
+	set(0, "@variable.member", { fg = colors.lime })
+	set(0, "@property", { fg = colors.lime })
+	set(0, "@type", { fg = colors.gold })
+
+	set(0, "@variable.parameter", { fg = colors.blue })
+	set(0, "@function.method", { fg = colors.cyan })
 	set(0, "@constructor", { fg = colors.ficsit_orange })
 
 	-- Treesitter comment groups
 	set(0, "@comment.error", { fg = colors.red, bg = colors.bg_red, italic = true })
 	set(0, "@comment.warning", { fg = colors.gold, bg = colors.bg_gold, italic = true })
-	set(0, "@comment.todo", { fg = colors.blue, bg = colors.bg_blue, italic = true })
+	set(0, "@comment.todo", { fg = colors.sky, bg = colors.bg_blue, italic = true })
 	set(0, "@comment.note", { fg = colors.cyan, bg = colors.bg_cyan, italic = true })
 
-	--:INFO: nvim-tree
+	-- INFO: nvim-tree
 
 	-- Basic
 	set(0, "NvimTreeNormal", { link = "String" })
