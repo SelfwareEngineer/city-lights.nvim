@@ -9,9 +9,10 @@ local colors = {
 	yellow = "#ffff00",
 	lime = "#bbff00",
 	green = "#00ff00",
+	mint = "#00ff99",
 	cyan = "#00ffff",
 	sky = "#00b6ff",
-	blue = "#0055ff",
+	blue = "#0066ff",
 	purple = "#aa33ff",
 	lavendar = "#bb88ff",
 	pink = "#ff00ff",
@@ -24,20 +25,21 @@ local colors = {
 
 	dark_red = "#7a0000",
 	dark_gold = "#885b00",
-	dark_blue = "#004f8d",
+	dark_green = "#008a00",
 	dark_cyan = "#005454",
+	dark_sky = "#004f8d",
 
 	hl_red = "#440000",
 	hl_gold = "#443300",
 	hl_green = "#004400",
-	hl_blue = "#003344",
-	hl_cyan = "#004040",
+	hl_cyan = "#004545",
+	hl_sky = "#003344",
 
 	bg_red = "#2d0000",
 	bg_gold = "#251800",
 	bg_green = "#021c00",
-	bg_blue = "#001322",
 	bg_cyan = "#001c1c",
+	bg_sky = "#001322",
 }
 
 function M.setup()
@@ -65,11 +67,11 @@ function M.setup()
 	-- Basic builtin Vim syntax groups
 	set(0, "Comment", { fg = colors.dark_cyan, italic = true })
 	set(0, "String", { fg = colors.white })
-	set(0, "Constant", { fg = colors.grey })
+	set(0, "Constant", { fg = colors.dark_green })
 	set(0, "Title", { fg = colors.lime, bold = true })
 	set(0, "Number", { fg = colors.purple })
 	set(0, "Float", { fg = colors.lavendar })
-	set(0, "Boolean", { fg = colors.gold })
+	set(0, "Boolean", { fg = colors.cyan })
 	set(0, "Identifier", { fg = colors.green })
 	set(0, "Keyword", { fg = colors.cyan, italic = true })
 	set(0, "Function", { fg = colors.sky, bold = true, italic = true })
@@ -81,7 +83,7 @@ function M.setup()
 	set(0, "ErrorMsg", { link = "Exception" })
 	set(0, "WarningMsg", { fg = colors.gold, bg = colors.bg_gold })
 	set(0, "ModeMsg", { fg = colors.green, bg = colors.bg_green })
-	set(0, "MoreMsg", { fg = colors.sky, bg = colors.bg_blue })
+	set(0, "MoreMsg", { fg = colors.sky, bg = colors.bg_sky })
 
 	-- Diagnostics
 	set(0, "DiagnosticError", { link = "Exception" })
@@ -106,7 +108,7 @@ function M.setup()
 
 	-- Diffing
 	set(0, "Added", { fg = colors.green, bg = colors.bg_green })
-	set(0, "Changed", { fg = colors.blue, bg = colors.bg_blue })
+	set(0, "Changed", { fg = colors.blue, bg = colors.bg_sky })
 	set(0, "Removed", { link = "Exception" })
 
 	-- INFO: Treesitter
@@ -115,7 +117,7 @@ function M.setup()
 	set(0, "@variable", { fg = colors.green })
 	set(0, "@variable.member", { fg = colors.lime })
 	set(0, "@property", { fg = colors.lime })
-	set(0, "@type", { fg = colors.gold })
+	set(0, "@type", { fg = colors.mint })
 
 	set(0, "@variable.parameter", { fg = colors.blue })
 	set(0, "@function.method", { fg = colors.cyan })
@@ -124,7 +126,7 @@ function M.setup()
 	-- Treesitter comment groups
 	set(0, "@comment.error", { fg = colors.red, bg = colors.bg_red, italic = true })
 	set(0, "@comment.warning", { fg = colors.gold, bg = colors.bg_gold, italic = true })
-	set(0, "@comment.todo", { fg = colors.sky, bg = colors.bg_blue, italic = true })
+	set(0, "@comment.todo", { fg = colors.sky, bg = colors.bg_sky, italic = true })
 	set(0, "@comment.note", { fg = colors.cyan, bg = colors.bg_cyan, italic = true })
 
 	-- INFO: nvim-tree
